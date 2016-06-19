@@ -74,7 +74,7 @@ Ext.define('CustomApp', {
 				fetch: ['Project', 'PercentDoneByStoryCount'],
 				cardConfig: {
 					xtype: 'rallycard',
-					fields: ['State','Project','c_Groomer'],
+					fields: ['c_Groomer'],
 					showIconsAndHighlightBorder: false,
 					editable: false,
 					showAge: true
