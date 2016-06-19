@@ -59,7 +59,7 @@ Ext.define('CustomApp', {
 			context: context,
 			stateful: false,
 			id: 'features',
-			modelNames: ['PortfolioItem/Feature'],
+			modelNames: modelNames,
 			toggleState: 'board',
 			storeConfig: {
 				context: {
@@ -92,14 +92,31 @@ Ext.define('CustomApp', {
 					headerPosition: 'left'
 					//// stateful: true,
 					//// stateId: context.getScopedStateId('picker')
-				}, {
-                    ptype: 'rallygridboardcustomfiltercontrol',
-					headerPosition: 'left',
-                    filterControlConfig: {
-						modelNames: ['PortfolioItem/Feature']
-						////stateful: true,
-						////stateId: context.getScopedStateId('custom-filter-example')
-					}
+				},
+				// {
+    //                 ptype: 'rallygridboardcustomfiltercontrol',
+				// 	headerPosition: 'left',
+    //                 filterControlConfig: {
+				// 		modelNames: ['PortfolioItem/Feature']
+				// 		////stateful: true,
+				// 		////stateId: context.getScopedStateId('custom-filter-example')
+				// 	}
+    //             }
+    {
+                ptype: 'rallygridboardinlinefiltercontrol',
+                    inlineFilterButtonConfig: {
+                        stateful: true,
+                        stateId: context.getScopedStateId('filters'),
+                        modelNames: modelNames,
+                        inlineFilterPanelConfig: {
+                            quickFilterPanelConfig: {
+                                defaultFields: [
+                                    'ArtifactSearch',
+                                    // 'ModelType'
+                                ]
+                            }
+                        }
+                    }
                 }
 			],
 			height: this.getHeight()
